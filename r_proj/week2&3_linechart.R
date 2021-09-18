@@ -4,7 +4,7 @@ library(tidyverse)
 
 # Read data
 require(readxl)
-w_pop <- read_excel("world-population.xlsm")
+w_pop <- read_excel("C:\\Users\\saman\\git_repos\\dsc640-data_presentation\\r_proj\\world-population.xlsm")
 
 w_pop
 
@@ -19,11 +19,14 @@ ggplot(w_pop, aes(x=Year, y= Population/1000000000)) +
        
 # # Plot as Step Chart
 # plot(w_pop$Year, w_pop$Population/1000000000, type="s", 
-#      main="Growth of World Population from 1960-2010", xlab="Year", ylab="Population(billions)")
+#      main="Growth of World Population from 1960-2010", xlab="Year"
+# , ylab="Population(billions)")
 
 list_year <- c("1960","1970","1980","1990","2000","2009")
 new_df <- w_pop %>%
   filter(Year %in% list_year)
+
+new_df
 
 # Step Function
 ggplot(new_df, aes(x=Year, y= Population/1000000000)) +
