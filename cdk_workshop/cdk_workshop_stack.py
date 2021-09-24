@@ -11,14 +11,3 @@ class CdkWorkshopStack(core.Stack):
 
     def __init__(self, scope: core.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
-
-        queue = sqs.Queue(
-            self, "CdkWorkshopQueue",
-            visibility_timeout=core.Duration.seconds(300),
-        )
-
-        topic = sns.Topic(
-            self, "CdkWorkshopTopic"
-        )
-
-        topic.add_subscription(subs.SqsSubscription(queue))
