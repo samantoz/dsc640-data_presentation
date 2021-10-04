@@ -43,3 +43,14 @@ plotwithGeom2exp <-plotexp + geom_area(color="black",
                                  alpha=0.4) + scale_fill_brewer(palette = "Blues")
 plotwithGeom2exp
 
+## Installing the package and calling the package in R##
+install.packages("treemap")
+library(treemap)
+
+# Creating a Treemap
+# The treemap function is used to create a treemap.
+View(stackeddataexp)
+
+aggregate(expenditure ~ category, stackeddataexp, sum)
+
+treemap(stackeddataexp,index = c("category"),vSize ="expenditure")
