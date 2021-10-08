@@ -52,5 +52,18 @@ library(treemap)
 View(stackeddataexp)
 
 aggregate(expenditure ~ category, stackeddataexp, sum)
-
+# Basic Treemap
 treemap(stackeddataexp,index = c("category"),vSize ="expenditure")
+
+# Creating a hierarchical treemap
+
+treemap(stackeddataexp,index = c("year","category"),vSize ="expenditure")
+
+treemap(stackeddataexp,index = c("year","category"),vSize ="expenditure", vColor="category", type="categorical")
+# Adding a Title and the Category labels centered and keeping that of Sub Categories in top left
+treemap(stackeddataexp,index = c("year","category"),
+        vSize ="expenditure", 
+        vColor="category", 
+        type="categorical",
+        title = "Expenditure Treemap for Categories by year",
+        fontsize.labels = c(15,10), align.labels = list(c("centre","centre"),c("left","top")))
