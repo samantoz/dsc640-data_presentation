@@ -19,17 +19,22 @@ plot <- ggplot(data=stackeddata,
 plotexp <- ggplot(data=stackeddataexp,
                aes(x=year,
                    y=expenditure,
-                   fill=category),
-               ylab("Years"),
-               xlab("Expenditure on various Categories"))
+                   fill=category))
 
 # Stacked area chart 
 # Create the geometry of the plot
 plotWithGeom <- plot + geom_area(aes(colour=Period,
                                      fill=Period))
 
+plotWithGeom <- plotWithGeom + labs(x="Years",
+                                    y = "Unemployment Rate",
+                                    title = "Stacked Area chart showing Unemployment Rate by Year")
+
 # Show the stacked area plots
 plotWithGeom
+
+help("xlab")
+
 
 # Density gradient
 plotwithGeom2 <-plot + geom_area(color="black",
@@ -41,6 +46,11 @@ plotwithGeom2
 plotwithGeom2exp <-plotexp + geom_area(color="black",
                                  size = 0.5,
                                  alpha=0.4) + scale_fill_brewer(palette = "Blues")
+
+plotwithGeom2exp <- plotwithGeom2exp + labs(x="Years",
+                                            y = "Expenditure",
+                                            title = "Stacked Area chart showing Expenditure by Category by Year")
+
 plotwithGeom2exp
 
 ## Installing the package and calling the package in R##
