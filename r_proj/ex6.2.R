@@ -32,3 +32,4 @@ boxplot(crime$burglary, crime$robbery, col="yellow",
 
 # Bullet Chart
 bullet_chart(dataframe = education)
+
