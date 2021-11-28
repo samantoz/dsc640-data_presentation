@@ -31,5 +31,17 @@ boxplot(crime$burglary, crime$robbery, col="yellow",
         main="Boxplot showing burglary and robbery")
 
 # Bullet Chart
-bullet_chart(dataframe = education)
+library(plotly)
+
+plot_ly(
+  type = "indicator",
+  mode = "number+gauge+delta",
+  gauge = list(shape = "bullet"),
+  delta = list(reference = 600),
+  value = education$reading[2],
+  domain = list(x = c(0, 1), y = c(0, 1)),
+  title = education$state[2],
+  # title = list(text = education$state[2]),
+  height = 150)
+
 
